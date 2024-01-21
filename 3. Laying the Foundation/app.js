@@ -1,49 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-// createRoot is the functionality of ReactDOM as we are working on web browser, 
-// here we get the root(a root element from html) where we want to start rendering and dom manipulation using React 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// React Element
+// const heading = React.creaetElement("h1", {id: "heading"}, "Namaste React");
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(heading);
 
+// JSX (transpiled before it reaches the JS engine) - PARCEL(it does this using Babel) -> Babel
 
-/**
- *  How to create the nested and sibling structure in React:
- * 
- * <div id="parent">
- *      <div id="child1">
- *          <h1></h1>
- *          <h2></h2>
- *      </div>
- *      <div id="child2">
- *          <h1></h1>
- *          <h2></h2>
- *      </div>
- * </div>
- * 
-*/
+const JsxHeading = () => (<h1 id="heading">Namaste React by JSX</h1>);
 
-const parent3 = React.createElement(
-    'div', 
-    {id: 'parent'},[
-        React.createElement(
-            'div',
-            {id: 'child1'},
-            [   // for sibling, we use an array of childs
-                React.createElement('h1', {}, "This is Namaste React"),
-                React.createElement('h2', {}, "I'm an h2 tag")
-            ]
-        ),
-        React.createElement(
-            'div',
-            {id: 'child2'},
-            [   // for sibling, we use an array of childs
-                React.createElement('h1', {}, "I'm an h1 tag"),
-                React.createElement('h2', {}, "I'm an h2 tag")
-            ]
-        )
-    ]
+const number = 1000;
+
+const title = (
+    <h2>this is sub-title</h2>
 );
 
-console.log(parent3);
+// React Functional Component
+// Component Composition
+const HeaderComponent = () => {
+	return (
+        <div id='container'>
+            <JsxHeading />
+            <h2>{ number }</h2>
+            {title}
+            <h1>Namaste React Functional Component</h1>
+        </div>
+    );
+}
 
-root.render(parent3);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(HeaderComponent());
+root.render(<HeaderComponent />);
