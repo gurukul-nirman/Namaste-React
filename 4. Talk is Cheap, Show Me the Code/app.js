@@ -39,10 +39,15 @@ const Header = () => {
     )
 }
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
+    const {resName, cuisine} = props;
     return (
         <div className='restaurant-card' style={styleCard}>
-            <h3>Meghana Foods</h3>
+            <img className='res-logo' alt='res logo' src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/80f040545552605e33eba09f8fa30be9'/>
+            <h3>{resName}</h3>
+            <h4>{cuisine}</h4>
+            <h4>4.4 stars</h4>
+            <h4>34 mins</h4>
         </div>
     )
 }
@@ -54,7 +59,8 @@ const Body = () => {
                 Search
             </div>
             <div className='restaurant-container'>
-                <RestaurantCard />
+                <RestaurantCard resName="Meghana Foods" cuisine="Pizza's, Burgers, Fast food" />
+                <RestaurantCard resName="Shiv corner" cuisine="Pure Veg. Food and Snacks" />
             </div>
         </div>
     )
