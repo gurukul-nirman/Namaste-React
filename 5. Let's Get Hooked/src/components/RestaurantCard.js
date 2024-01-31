@@ -4,7 +4,7 @@ const styleCard = {
 
 const RestaurantCard = (props) => {
     const {name, cuisines, costForTwo, deliverytime, avgRating, cloudinaryImageId} = props.resData;
-    console.log(props);
+    
     return (
         <div className='restaurant-card' style={styleCard}>
             <img className='res-logo' alt='res logo' src={'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/'+cloudinaryImageId}/>
