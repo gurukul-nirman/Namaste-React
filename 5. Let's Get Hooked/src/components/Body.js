@@ -29,7 +29,7 @@ const Body = () => {
         costForTwo: 40000,
         deliverytime: 36,
         avgRating: '4.1'
-    }]);
+    }]); 
 
     return (
         <div className='body'>
