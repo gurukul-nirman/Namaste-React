@@ -1,6 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
-import { GET_RESTAURANTS_ENDPOINT } from "../utils/constants";
+import { CORS_PROXY, GET_RESTAURANTS_ENDPOINT } from "../utils/constants";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
@@ -14,7 +14,7 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch(GET_RESTAURANTS_ENDPOINT);
+        const data = await fetch(CORS_PROXY + GET_RESTAURANTS_ENDPOINT);
 
         const json = await data.json();
 
