@@ -1,0 +1,29 @@
+{
+  "name": "2.-igniting-our-app",
+  "version": "1.0.0",
+  "description": "This is Namaste react series second episode",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "keywords": [
+    "react",
+    "javascript"
+  ],
+  "author": "Harish Chahar",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0"
+  },
+  "browserslist": [
+    "last 2 version",
+    "not dead"
+  ]
+}
