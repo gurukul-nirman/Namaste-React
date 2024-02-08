@@ -14,7 +14,10 @@ class UserClass extends React.Component {
     }
 
     componentDidMount() {
-        console.log('This is called after the render method is called. Constructor -> render -> componentDidMount');
+        console.log('This is called after the render method is called and mounted the component. Constructor -> render -> componentDidMount');
+        console.log('API calls are called in componentDidMount. Just like we call API cal in useEffect in functional component');
+        console.log('This is done for better UX.');
+        console.log('Load (render) -> API call -> re-render component after getting data');
     }
 
     // this render method is must whihc will return the JSX 
