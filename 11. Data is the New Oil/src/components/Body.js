@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { CORS_PROXY, GET_RESTAURANTS_ENDPOINT } from "../utils/constants";
 import RestaurantCard, {withOpenLabel} from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
 
@@ -17,6 +18,8 @@ const Body = () => {
     useEffect(() => {
         fetchData();
     }, []);
+
+    const { loggedInUser, setUserName } = useContext(UserContext);
 
     const fetchData = async () => {
         const data = await fetch(CORS_PROXY + GET_RESTAURANTS_ENDPOINT);
@@ -61,6 +64,9 @@ const Body = () => {
                         setFilteredRestaurants(filteredLsit);
                         console.log(listOfRestaurants);
                     }}>Top Rated Restaurants</button>
+                    <label>UserName : </label>
+                    <input className="border border-black ml-2 pl-2" value={loggedInUser} onChange={(e) => setUserName(e.target.value)} />
+
                 </div>
             </div>
             <div className='flex flex-wrap justify-center'>

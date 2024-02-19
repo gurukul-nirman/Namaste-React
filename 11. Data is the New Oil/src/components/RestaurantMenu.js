@@ -2,10 +2,13 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestarurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
     
     const { resId } = useParams();
+
+    const [showIndex, setShowIndex] = useState(0);
 
     // custom hook to get the restaurant data
     // This makes the RestaurantMenu component is now following Single responsibility principle
@@ -15,14 +18,9 @@ const RestaurantMenu = () => {
 
     const {name, cuisines, costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info;
 
-    const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-    // console.log('itemsCards : ', resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
-
     const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(item => {
         return item?.card?.card?.['@type'] === 'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory';
     })
-
-    // console.log(categories);
 
     return (
         <div className="text-center">
@@ -30,8 +28,8 @@ const RestaurantMenu = () => {
             <p className="font-bold text-lg">{cuisines?.join(", ")} - {costForTwoMessage}</p>
             {/** accordian */}
             {
-                categories.map((category) => {
-                    return <RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card}/>
+                categories.map((category, index) => {
+                    return <RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card} showItems={showIndex === index} setShowIndex={() => setShowIndex(index)}/>
                 })
             }
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import UserContext from '../utils/UserContext';
 
 // extends React.Component to register the calss to react that it's a component
 class UserClass extends React.Component {
@@ -51,6 +52,12 @@ class UserClass extends React.Component {
                 <h2>Name: {name}</h2>
                 <h3>Location: {location}</h3>
                 <h4>Contact: @theZiton</h4>
+                <div>
+                    LoggedIn User: 
+                    <UserContext.Consumer>
+                        { ({loggedInUser}) => <h2 className='text-xl font-bold'>{loggedInUser}</h2>}
+                    </UserContext.Consumer>
+                </div>
             </div>
         )
     }
